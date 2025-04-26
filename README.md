@@ -1,6 +1,6 @@
 # 💡 에스아이에이 사전 과제 테스트
 
-- 개발 기간(4/25 ~ 4/26)
+- 개발 기간(4/25 ~ 4/27)
 
 ## 1. API 서비스 구성
 - Spring Boot 기반의 REST API 서버
@@ -35,7 +35,10 @@ https://succinct-hamburger-40a.notion.site/SIA-_-1e0d2d7a62ad806e86aef61901c3fea
 ---
 
 ## 5. 사용 방법
-환경변수와 함께 jar 실행
+1. api.jar 파일 다운
+<img width="904" alt="스크린샷 2025-04-27 오전 12 49 55" src="https://github.com/user-attachments/assets/6e93fa0b-16fd-45b0-b698-643206486981" />
+
+2. 환경변수와 함께 jar 실행
 ```
 AWS_ACCESS_KEY_ID=AKIAQXUIXRORJIM7GSWP AWS_SECRET_ACCESS_KEY=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 AWS_REGION=ap-northeast-2 USER_NAME=tester-ChangDaeun-1744790818 INPUT_BUCKET=dev1-apne2-pre-test-scene-bucket OUTPUT_BUCKET=dev1-apne2-pre-test-tester-bucket java -jar api.jar
 ```
