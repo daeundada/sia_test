@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sia.sia_task.domain.convert.dto.request.BatchConvertRequestDTO;
 import sia.sia_task.domain.convert.dto.request.ConvertRequestDTO;
 import sia.sia_task.domain.convert.entity.ImageMetadata;
 import sia.sia_task.domain.convert.repository.ImageMetadataRepository;
@@ -16,6 +17,8 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -155,5 +158,26 @@ public class ConvertService {
                         .build(),
                 RequestBody.fromFile(file)
         );
+    }
+
+    @Transactional
+    public List<String> convertBatch(BatchConvertRequestDTO request) {
+
+        List<String> results = new ArrayList<>();
+
+        for (String fileName : request.getFileNames()) {
+            try {
+                // 1개 파일마다 단건 변환 호출
+                ConvertRequestDTO singleRequest = new ConvertRequestDTO(fileName);
+                String result = convertSingle(singleRequest);
+                results.add(result);
+
+            } catch (Exception e) {
+                System.out.println("변환 실패 파일: " + fileName);
+                e.printStackTrace();
+            }
+        }
+
+        return results;
     }
 }
