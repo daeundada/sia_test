@@ -35,18 +35,9 @@ https://succinct-hamburger-40a.notion.site/SIA-_-1e0d2d7a62ad806e86aef61901c3fea
 ---
 
 ## 5. 사용 방법
-
+환경변수와 함께 jar 실행
 ```
-1. git clone
-
-2. 환경 변수 설정
-AWS_ACCESS_KEY_ID=xxx
-AWS_SECRET_ACCESS_KEY=xxx
-AWS_REGION=xxx
-INPUT_BUCKET=xxx
-OUTPUT_BUCKET=xxx
-
-3. 서버 실행
+AWS_ACCESS_KEY_ID=AKIAQXUIXRORJIM7GSWP AWS_SECRET_ACCESS_KEY=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 AWS_REGION=ap-northeast-2 USER_NAME=tester-ChangDaeun-1744790818 INPUT_BUCKET=dev1-apne2-pre-test-scene-bucket OUTPUT_BUCKET=dev1-apne2-pre-test-tester-bucket java -jar api.jar
 ```
 
 ---
