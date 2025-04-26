@@ -1,1 +1,3 @@
 rootProject.name = 'sia_task'
+
+include 'api', 'domain', 'global'
