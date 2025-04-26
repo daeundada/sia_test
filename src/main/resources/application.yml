@@ -16,3 +16,11 @@ spring:
     console:
       enabled: true
       path: /h2-console
+
+aws:
+  access-key-id: ${AWS_ACCESS_KEY_ID}
+  secret-access-key: ${AWS_SECRET_ACCESS_KEY}
+  region: ${AWS_REGION}
+  user-name: ${USER_NAME}
+  input-bucket: ${INPUT_BUCKET}
+  output-bucket: ${OUTPUT_BUCKET}
