@@ -21,6 +21,12 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
 
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:3.4.5"
+        }
+    }
+
     repositories {
         mavenCentral()
     }
@@ -33,27 +39,42 @@ subprojects {
 
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-        implementation 'org.springframework.boot:spring-boot-starter-validation'
-        implementation 'org.springframework.boot:spring-boot-starter-web'
         compileOnly 'org.projectlombok:lombok'
         runtimeOnly 'com.h2database:h2'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-        implementation 'com.fasterxml.jackson.core:jackson-databind'
-        implementation 'org.springframework.boot:spring-boot-starter-webflux'
-
-        //S3
-        implementation 'software.amazon.awssdk:s3:2.20.0'
-
-        //QueryDsl
-        implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
-        annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
-        annotationProcessor "jakarta.annotation:jakarta.annotation-api"
-        annotationProcessor "jakarta.persistence:jakarta.persistence-api"
     }
 
     tasks.named('test') {
         useJUnitPlatform()
+    }
+}
+
+project(':api') {
+    bootJar {
+        enabled = true
+        mainClass = 'sia.api.SiaTaskApplication'
+    }
+    jar {
+        enabled = false
+    }
+}
+
+project(':domain') {
+    bootJar {
+        enabled = false
+    }
+    jar {
+        enabled = true
+    }
+}
+
+project(':global') {
+    bootJar {
+        enabled = false
+    }
+    jar {
+        enabled = true
     }
 }
