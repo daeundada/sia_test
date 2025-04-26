@@ -1,6 +1,7 @@
 package sia.domain.convert.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class ConvertService {
@@ -177,8 +179,8 @@ public class ConvertService {
                 results.add(result);
 
             } catch (Exception e) {
-                System.out.println("변환 실패 파일: " + fileName);
-                e.printStackTrace();
+                log.error("파일 변환 실패: {}", fileName, e);
+                results.add(fileName + " 변환 실패");
             }
         }
 
