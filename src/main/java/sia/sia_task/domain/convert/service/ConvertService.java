@@ -2,10 +2,14 @@ package sia.sia_task.domain.convert.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sia.sia_task.domain.convert.dto.request.BatchConvertRequestDTO;
 import sia.sia_task.domain.convert.dto.request.ConvertRequestDTO;
+import sia.sia_task.domain.convert.dto.response.MetadataListResponseDTO;
+import sia.sia_task.domain.convert.dto.response.MetadataResponseDTO;
 import sia.sia_task.domain.convert.entity.ImageMetadata;
 import sia.sia_task.domain.convert.repository.ImageMetadataRepository;
 import software.amazon.awssdk.core.sync.RequestBody;
@@ -179,5 +183,27 @@ public class ConvertService {
         }
 
         return results;
+    }
+
+    @Transactional(readOnly = true)
+    public MetadataListResponseDTO searchMetadata(String originalFileName,
+                                                  String convertFileName,
+                                                  Integer bandCount,
+                                                  Pageable pageable) {
+
+        Page<ImageMetadata> imageMetadataPage =
+                imageMetadataRepository.search(originalFileName, convertFileName, bandCount, pageable);
+
+        List<MetadataResponseDTO> metadataList = imageMetadataPage.getContent().stream()
+                .map(MetadataResponseDTO::new)
+                .toList();
+
+        return new MetadataListResponseDTO(
+                metadataList,
+                pageable.getPageSize(),
+                imageMetadataPage.getTotalElements(),
+                imageMetadataPage.getTotalPages(),
+                imageMetadataPage.getNumber()
+        );
     }
 }
