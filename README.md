@@ -1,8 +1,8 @@
-# 💡 과제 테스트
+## 1. 개발 기간(4/25 ~ 4/27)
 
-- 개발 기간(4/25 ~ 4/27)
+---
 
-## 1. API 서비스 구성
+## 2. API 서비스 구성
 - Spring Boot 기반의 REST API 서버
 - AWS S3를 이용한 파일 저장
 - H2 Database를 통한 메타데이터 저장
@@ -10,7 +10,7 @@
   
 ---
 
-## 2. 프로젝트 모듈 구성
+## 3. 프로젝트 모듈 구성
 
 ```
 sia_test (root)
@@ -21,14 +21,14 @@ sia_test (root)
 
 ---
 
-## 3. API 명세서
+## 4. API 명세서
 - Notion (요청, 응답값 확인가능)
 https://succinct-hamburger-40a.notion.site/SIA-_-1e0d2d7a62ad806e86aef61901c3fea7
 <img width="983" alt="스크린샷 2025-04-26 오후 11 34 33" src="https://github.com/user-attachments/assets/266a4c7b-2890-4dfd-848f-961ac7887e2c" />
 
 ---
 
-## 4. 브랜치 역할 및 네이밍 규칙
+## 5. 브랜치 역할 및 네이밍 규칙
 
 | 브랜치명 | 설명 |
 | --- | --- |
@@ -38,7 +38,7 @@ https://succinct-hamburger-40a.notion.site/SIA-_-1e0d2d7a62ad806e86aef61901c3fea
 
 ---
 
-## 5. 커밋 규칙
+## 6. 커밋 규칙
 
 | 프리픽스(prefix) | 설명 |
 | --- | --- |
