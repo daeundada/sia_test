@@ -1,4 +1,4 @@
-# 💡 에스아이에이 사전 과제 테스트
+# 💡 과제 테스트
 
 - 개발 기간(4/25 ~ 4/27)
 
@@ -28,24 +28,7 @@ https://succinct-hamburger-40a.notion.site/SIA-_-1e0d2d7a62ad806e86aef61901c3fea
 
 ---
 
-## 4. 아키텍처
-
-![아키텍처 drawio](https://github.com/user-attachments/assets/bea7bce9-3800-4c57-a29e-d1c1a096d7ec)
-
----
-
-## 5. 사용 방법
-1. api.jar 파일 다운
-<img width="904" alt="스크린샷 2025-04-27 오전 12 49 55" src="https://github.com/user-attachments/assets/6e93fa0b-16fd-45b0-b698-643206486981" />
-
-2. 환경변수와 함께 jar 실행
-```
-AWS_ACCESS_KEY_ID=AKIAQXUIXRORJIM7GSWP AWS_SECRET_ACCESS_KEY=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 AWS_REGION=ap-northeast-2 USER_NAME=tester-ChangDaeun-1744790818 INPUT_BUCKET=dev1-apne2-pre-test-scene-bucket OUTPUT_BUCKET=dev1-apne2-pre-test-tester-bucket java -jar api.jar
-```
-
----
-
-## 6. 브랜치 역할 및 네이밍 규칙
+## 4. 브랜치 역할 및 네이밍 규칙
 
 | 브랜치명 | 설명 |
 | --- | --- |
@@ -55,7 +38,7 @@ AWS_ACCESS_KEY_ID=AKIAQXUIXRORJIM7GSWP AWS_SECRET_ACCESS_KEY=xq2M5YkzOT0glYItTSH
 
 ---
 
-## 7. 커밋 규칙
+## 5. 커밋 규칙
 
 | 프리픽스(prefix) | 설명 |
 | --- | --- |
@@ -64,11 +47,3 @@ AWS_ACCESS_KEY_ID=AKIAQXUIXRORJIM7GSWP AWS_SECRET_ACCESS_KEY=xq2M5YkzOT0glYItTSH
 | refactor | 코드 리팩토링 |
 | fix | 코드 수정 |
 
----
-## 8. 면접 질문 예상
-
-```
-1. 비동기 방식으로 개선한다면 어떤 방법을 고려할 수 있을까요?
-
-2. 멀티 모듈로 프로젝트를 분리한 이유와 그로 인해 얻을 수 있는 이점은 무엇인가요?
-```
